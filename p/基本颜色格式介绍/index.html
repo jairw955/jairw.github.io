@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="zh-cn" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='YUV介绍 有两种表示方法 Y表示明亮度，即灰阶值，如果只看Y，图案是黑白的。U表示色调，V表示饱和度。 Y表示明亮度，Cb表示蓝色分量，Cr表示'>
+<title>基本颜色格式介绍</title>
+
+<link rel='canonical' href='https://jairw955.github.io/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/'>
+
+<link rel="stylesheet" href="/scss/style.min.8191399262444ab68b72a18c97392f5349be20a1615d77445be51e974c144cff.css"><meta property='og:title' content='基本颜色格式介绍'>
+<meta property='og:description' content='YUV介绍 有两种表示方法 Y表示明亮度，即灰阶值，如果只看Y，图案是黑白的。U表示色调，V表示饱和度。 Y表示明亮度，Cb表示蓝色分量，Cr表示'>
+<meta property='og:url' content='https://jairw955.github.io/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/'>
+<meta property='og:site_name' content='Jair&#39;s Site'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2023-01-16T17:09:57&#43;08:00'/><meta property='article:modified_time' content='2023-01-16T17:09:57&#43;08:00'/>
+<meta name="twitter:title" content="基本颜色格式介绍">
+<meta name="twitter:description" content="YUV介绍 有两种表示方法 Y表示明亮度，即灰阶值，如果只看Y，图案是黑白的。U表示色调，V表示饱和度。 Y表示明亮度，Cb表示蓝色分量，Cr表示">
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="切换菜单">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_huda2458f72ce188392d75c5d51cd8e24e_373_300x0_resize_box_3.png" width="460"
+                            height="460" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🏸</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">Jair&#39;s Site</a></h1>
+            <h2 class="site-description">Where will we wake up tomorrow.</h2>
+        </div>
+    </header><ol class="social-menu">
+            
+                <li>
+                    <a 
+                        href='https://github.com/jairw955'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-github" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+</svg>
+
+
+
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+
+        <div class="menu-bottom-section">
+            
+            
+                <li id="dark-mode-toggle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                    <span>暗色模式</span>
+                </li>
+            
+        </div>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">目录</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li><a href="#yuv介绍">YUV介绍</a>
+      <ol>
+        <li><a href="#yuv-444">YUV 4:4:4</a>
+          <ol>
+            <li><a href="#yuv444p">yuv444p</a></li>
+            <li><a href="#yuv444sp">yuv444sp</a></li>
+            <li><a href="#yuv444-packed">yuv444 packed</a></li>
+          </ol>
+        </li>
+        <li><a href="#yuv-440">YUV 4:4:0</a>
+          <ol>
+            <li><a href="#yuv440p">yuv440p</a></li>
+            <li><a href="#yuv440sp">yuv440sp</a></li>
+            <li><a href="#yuv440-packed">yuv440 packed</a></li>
+          </ol>
+        </li>
+        <li><a href="#yuv-422">YUV 4:2:2</a>
+          <ol>
+            <li><a href="#yuv422p">yuv422p</a></li>
+            <li><a href="#yuv422sp">yuv422sp</a></li>
+            <li><a href="#yuv422-packed">yuv422 packed</a></li>
+          </ol>
+        </li>
+        <li><a href="#yuv-420">YUV 4:2:0</a>
+          <ol>
+            <li><a href="#yuv420p">yuv420p</a></li>
+            <li><a href="#yuv420sp">yuv420sp</a></li>
+            <li><a href="#yuv420-packed">yuv420 packed</a></li>
+          </ol>
+        </li>
+        <li><a href="#yuv-411">YUV 4:1:1</a>
+          <ol>
+            <li><a href="#yuv411p">yuv411p</a></li>
+            <li><a href="#yuv411sp">yuv411sp</a></li>
+          </ol>
+        </li>
+        <li><a href="#yuv-410">YUV 4:1:0</a>
+          <ol>
+            <li><a href="#yuv410p">yuv410p</a></li>
+          </ol>
+        </li>
+        <li><a href="#yuv-400">YUV 4:0:0</a>
+          <ol>
+            <li><a href="#yuv400p">yuv400p</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+    <li><a href="#rgb介绍">RGB介绍</a>
+      <ol>
+        <li><a href="#rgb332">RGB332</a></li>
+        <li><a href="#rgb565">RGB565</a></li>
+        <li><a href="#rgb555">RGB555</a></li>
+        <li><a href="#rgb24">RGB24</a></li>
+        <li><a href="#rgb32">RGB32</a></li>
+        <li><a href="#drm中的定义">DRM中的定义</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/">基本颜色格式介绍</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published">Jan 16, 2023</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    阅读时长: 4 分钟
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h2 id="yuv介绍">YUV介绍</h2>
+<p>有两种表示方法</p>
+<ol>
+<li>Y表示明亮度，即灰阶值，如果只看Y，图案是黑白的。U表示色调，V表示饱和度。</li>
+<li>Y表示明亮度，Cb表示蓝色分量，Cr表示红色分量。</li>
+</ol>
+<p>使用不同采样的原因，是为了压缩空间，完整采样每像素点需要24bits，而YUV420采样每像素点只要12bits。并且人眼对亮度分量（Y）比较敏感，而对色度分量（UV）相对不敏感，因此可以降低UV的采样。</p>
+<p>通常每个分量的采样深度都为8bit，但是也有10bit的形式，需要注意，虽然是按10bit采样，但是实际空间是按16bit占用。</p>
+<h3 id="yuv-444">YUV 4:4:4</h3>
+<p>YUV 4:4:4表示全采样，每个像素点占用24bits。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_hu9bdcc700e57e08a1c8700323fdd74f0e_18623_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_hu9bdcc700e57e08a1c8700323fdd74f0e_18623_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv444"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv444p">yuv444p</h4>
+<p>Planar形式，即平面模式，按YYYYUUUUVVVV或YYYYVVVVUUUU的顺序依次排布</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_planar.png"
+	width="662"
+	height="484"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_planar_hua1ad6a4b5bf67841b315f18b9e458c31_46205_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_planar_hua1ad6a4b5bf67841b315f18b9e458c31_46205_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv444 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="328px"
+	
+></p>
+<h4 id="yuv444sp">yuv444sp</h4>
+<p>Planar Interlaced形式，即平面交织模式，按YYYYUVUVUVUV或YYYYVUVUVUVU的顺序排布</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_planar_interlaced.png"
+	width="662"
+	height="484"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_planar_interlaced_hu94ddc4b9f13e7857688ab2c192dd6bf9_39964_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_planar_interlaced_hu94ddc4b9f13e7857688ab2c192dd6bf9_39964_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv444 planar interlaced"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="328px"
+	
+></p>
+<h4 id="yuv444-packed">yuv444 packed</h4>
+<p>Packed形式，按YUVYUVYUVYUV的顺序排布</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_packed.png"
+	width="662"
+	height="484"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_packed_hua12371aeba4a7a0c0ba51e2b44d6a936_48192_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv444_packed_hua12371aeba4a7a0c0ba51e2b44d6a936_48192_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv444 packed"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="136"
+		data-flex-basis="328px"
+	
+></p>
+<h3 id="yuv-440">YUV 4:4:0</h3>
+<p>水平方向全采样，垂直方向交替2:1采样。下图仅列出一种情况，即奇数行采YUV，偶数行采Y。还有可能有奇数行采YU，偶数行采YV等情况，取决于芯片内部处理，最终占用的内存一致，显示图像的方法也一致。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_hu837037d0f1a338e9fcac5ab609d72159_15776_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_hu837037d0f1a338e9fcac5ab609d72159_15776_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv440"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv440p">yuv440p</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_planar.png"
+	width="664"
+	height="322"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_planar_hua586fc16bf604c7879f1f43748986085_29155_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_planar_hua586fc16bf604c7879f1f43748986085_29155_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv440 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="206"
+		data-flex-basis="494px"
+	
+></p>
+<h4 id="yuv440sp">yuv440sp</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_planar_interlaced.png"
+	width="662"
+	height="324"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_planar_interlaced_hua8c372c28c66a5ab769d00c3a17e9109_26963_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_planar_interlaced_hua8c372c28c66a5ab769d00c3a17e9109_26963_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv440 planar interlaced"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="490px"
+	
+></p>
+<h4 id="yuv440-packed">yuv440 packed</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_packed.png"
+	width="1364"
+	height="326"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_packed_hu91465d3f6f50c5385159127163683ad5_50455_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv440_packed_hu91465d3f6f50c5385159127163683ad5_50455_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv440 packed"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="418"
+		data-flex-basis="1004px"
+	
+></p>
+<h3 id="yuv-422">YUV 4:2:2</h3>
+<p>水平方向2:1采样，垂直方向全采样。或理解为Y分量全采样，UV分量每2点采一个。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_hub02f7f329629e88bff589902c295085d_16997_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_hub02f7f329629e88bff589902c295085d_16997_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv422"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv422p">yuv422p</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_planar.png"
+	width="662"
+	height="322"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_planar_hue9fa0b35e7cd4919d69fed6e36e1c7b5_30513_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_planar_hue9fa0b35e7cd4919d69fed6e36e1c7b5_30513_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv422 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="205"
+		data-flex-basis="493px"
+	
+></p>
+<h4 id="yuv422sp">yuv422sp</h4>
+<p>下图一别称NV16，下图二别称NV61</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_planar_interlaced.png"
+	width="662"
+	height="324"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_planar_interlaced_hu580508ef145032f489c71e502b5dfbcf_26958_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_planar_interlaced_hu580508ef145032f489c71e502b5dfbcf_26958_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv422 planar interlaced"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="204"
+		data-flex-basis="490px"
+	
+></p>
+<h4 id="yuv422-packed">yuv422 packed</h4>
+<p>下图一别称YUY2</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_packed.png"
+	width="1364"
+	height="326"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_packed_hu7212a140f1a0412514136021474f8dfe_50583_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv422_packed_hu7212a140f1a0412514136021474f8dfe_50583_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv422 packed"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="418"
+		data-flex-basis="1004px"
+	
+></p>
+<h3 id="yuv-420">YUV 4:2:0</h3>
+<p>水平方向2:1采样，垂直方向2:1采样。除图示外，还可能有隔行采样，奇数行采YUV，偶数行采Y，或隔行隔列采样等。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_huc7282981b5bba67e7c3e57bb88990721_15418_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_huc7282981b5bba67e7c3e57bb88990721_15418_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv420"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv420p">yuv420p</h4>
+<p>下图一别称YU12/I420，下图二别称YV12</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_planar.png"
+	width="664"
+	height="244"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_planar_hucf44b3e0b70082a817f271f21c2a05ad_20918_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_planar_hucf44b3e0b70082a817f271f21c2a05ad_20918_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv420 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="272"
+		data-flex-basis="653px"
+	
+></p>
+<h4 id="yuv420sp">yuv420sp</h4>
+<p>下图一别称NV12，下图二别称NV21</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_planar_interlaced.png"
+	width="662"
+	height="244"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_planar_interlaced_hue32365f06bad0f53a30b173d9abea360_20533_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_planar_interlaced_hue32365f06bad0f53a30b173d9abea360_20533_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv420 planar interlaced"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="271"
+		data-flex-basis="651px"
+	
+></p>
+<h4 id="yuv420-packed">yuv420 packed</h4>
+<p>下图别称Y41P/Y411</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_packed.png"
+	width="324"
+	height="244"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_packed_hu26473c4da3fab70e622072a92ff3508b_15791_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv420_packed_hu26473c4da3fab70e622072a92ff3508b_15791_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv420 packed"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="132"
+		data-flex-basis="318px"
+	
+></p>
+<h3 id="yuv-411">YUV 4:1:1</h3>
+<p>水平方向4:1采样，垂直方向全采样。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_hu30fd5283ead02fbc14826d8de131dda5_15661_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_hu30fd5283ead02fbc14826d8de131dda5_15661_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv411"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv411p">yuv411p</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_planar.png"
+	width="664"
+	height="244"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_planar_hu646f4b256c1cbf70499a9785d3504839_20607_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_planar_hu646f4b256c1cbf70499a9785d3504839_20607_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv411 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="272"
+		data-flex-basis="653px"
+	
+></p>
+<h4 id="yuv411sp">yuv411sp</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_planar_interlaced.png"
+	width="664"
+	height="244"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_planar_interlaced_hu5b92c47e1cc48f55fe6d82c446f5a080_19948_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv411_planar_interlaced_hu5b92c47e1cc48f55fe6d82c446f5a080_19948_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv411 planar interlaced"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="272"
+		data-flex-basis="653px"
+	
+></p>
+<h3 id="yuv-410">YUV 4:1:0</h3>
+<p>水平方向4:1采样，垂直方向2:1采样。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv410.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv410_hud7598d7bff2d173200d40104b4554596_14369_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv410_hud7598d7bff2d173200d40104b4554596_14369_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv410"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv410p">yuv410p</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv410_planar.png"
+	width="664"
+	height="244"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv410_planar_hue78e98a7979cfbdf7fb54423df7fbc83_18926_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv410_planar_hue78e98a7979cfbdf7fb54423df7fbc83_18926_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv410 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="272"
+		data-flex-basis="653px"
+	
+></p>
+<h3 id="yuv-400">YUV 4:0:0</h3>
+<p>仅采Y分量。</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv400.png"
+	width="564"
+	height="284"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv400_hua29a80960ab796499787d0340e1f913b_13025_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv400_hua29a80960ab796499787d0340e1f913b_13025_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv400"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="198"
+		data-flex-basis="476px"
+	
+></p>
+<h4 id="yuv400p">yuv400p</h4>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv400_planar.png"
+	width="324"
+	height="162"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv400_planar_huc70f57e631ae653c703031745a658a41_8781_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/yuv400_planar_huc70f57e631ae653c703031745a658a41_8781_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="yuv400 planar"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="200"
+		data-flex-basis="480px"
+	
+></p>
+<h2 id="rgb介绍">RGB介绍</h2>
+<p>RGB分为Red, Green, Blue三个分量，按需要可能有A（Alpha）分量。RGB分为两大类，一类为索引形式，一类为像素形式。</p>
+<ol>
+<li>
+<p>索引形式</p>
+<p>有RGB1，RGB4，RGB8等形式。通常存在一索引表（调色盘），RGBn的索引表大小为2^n，以RGB1为例，仅有两色（如黑和白），则数据中的0即表示白色，1表示黑色，如点阵字库就可以认为是RGB1。RGB8则包含256种颜色，注意颜色不一定连续，并且索引表的大小可能是32bit的，因此在色彩不超过256色的情况下，RGB8索引色与ARGB32表示的图像是一致的，但是RGB8占用的空间可能比ARGB32小很多（RGB8为256 * 4 + w * h，ARGB32为w * h * 4）。</p>
+</li>
+<li>
+<p>像素形式</p>
+<p>按照不同分量占用的比特数以及不同的排列顺序，可以分为RGB332，RGB555，RGB565，RGB888(RGB24)，ARGB8888（RGB32）等。</p>
+</li>
+</ol>
+<h3 id="rgb332">RGB332</h3>
+<p>R:3bits, G:3bits, B:2bits，每个像素点占用1字节</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB332.png"
+	width="642"
+	height="162"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB332_hu23bfff37b1a39455b5b47b9e7c0ced60_9981_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB332_hu23bfff37b1a39455b5b47b9e7c0ced60_9981_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RGB332"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="396"
+		data-flex-basis="951px"
+	
+></p>
+<h3 id="rgb565">RGB565</h3>
+<p>R:5bits, G:6bits, B:5bits，每个像素点占用2字节。还有BGR565等形式</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB565.png"
+	width="1282"
+	height="162"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB565_hu1fe3eade203e29bfaf10660926be7a30_16481_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB565_hu1fe3eade203e29bfaf10660926be7a30_16481_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RGB565"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="791"
+		data-flex-basis="1899px"
+	
+></p>
+<h3 id="rgb555">RGB555</h3>
+<p>R:5bits, G:5bits, B:5bits，每个像素点占用2字节，最高位数据忽略</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB555.png"
+	width="1282"
+	height="162"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB555_hu1f66ffcdc68440fd632e55229e362ef2_17025_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB555_hu1f66ffcdc68440fd632e55229e362ef2_17025_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RGB555"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="791"
+		data-flex-basis="1899px"
+	
+></p>
+<h3 id="rgb24">RGB24</h3>
+<p>RGB888，R:8bits, G:8bits, B:8bits，每个像素点占用3字节。还有BGR888等形式</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB24.png"
+	width="1282"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB24_huebbded81f03ca3b2fb9b796c763c68ed_26993_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB24_huebbded81f03ca3b2fb9b796c763c68ed_26993_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RGB24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+<h3 id="rgb32">RGB32</h3>
+<p>ARGB8888，A:8bits, R:8bits, G:8bits, B:8bits，每个像素点占用4字节。还有RGBA32，ABGR32，BGRA32，RGBX32，BGRX32，XRGB32，XBGR32等形式</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB32.png"
+	width="1282"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB32_hu95136cf26f95de5ae35b47490a5cd425_29779_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RGB32_hu95136cf26f95de5ae35b47490a5cd425_29779_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RGB32"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+<h3 id="drm中的定义">DRM中的定义</h3>
+<p>RG16/RGB565：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RG16.png"
+	width="1282"
+	height="164"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RG16_hu8db9b0c838214cae5042379ad7dce6b8_16540_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RG16_hu8db9b0c838214cae5042379ad7dce6b8_16540_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RG16"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="781"
+		data-flex-basis="1876px"
+	
+></p>
+<p>BG16/BGR565：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BG16.png"
+	width="1282"
+	height="162"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BG16_huff10c43bb2998a2ee95112043d6812a1_16445_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BG16_huff10c43bb2998a2ee95112043d6812a1_16445_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="BG16"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="791"
+		data-flex-basis="1899px"
+	
+></p>
+<p>RG24/RGB888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RG24.png"
+	width="1282"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RG24_huef4be813eb8efb5ca77a44836743dc88_27023_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RG24_huef4be813eb8efb5ca77a44836743dc88_27023_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RG24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+<p>BG24/BGR888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BG24.png"
+	width="1282"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BG24_hu8762c8bd250fb879da68cca1a621c310_27011_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BG24_hu8762c8bd250fb879da68cca1a621c310_27011_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="BG24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+<p>AR24/ARGB8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/AR24.png"
+	width="1284"
+	height="344"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/AR24_hu4b7899173da400a7a556b4477827603c_29775_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/AR24_hu4b7899173da400a7a556b4477827603c_29775_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="AR24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="373"
+		data-flex-basis="895px"
+	
+></p>
+<p>XR24/XRGB8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/XR24.png"
+	width="1282"
+	height="344"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/XR24_hu17e73ee663354d4fbcf93e4a66477af9_29913_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/XR24_hu17e73ee663354d4fbcf93e4a66477af9_29913_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="XR24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="372"
+		data-flex-basis="894px"
+	
+></p>
+<p>AB24/ABGR8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/AB24.png"
+	width="1284"
+	height="344"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/AB24_hu3fe91ca452603b73a23cf06bf0114a12_29770_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/AB24_hu3fe91ca452603b73a23cf06bf0114a12_29770_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="AB24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="373"
+		data-flex-basis="895px"
+	
+></p>
+<p>XB24/XBGR8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/XB24.png"
+	width="1282"
+	height="344"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/XB24_huef6cb904526d1060bb3a24a999703fae_29900_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/XB24_huef6cb904526d1060bb3a24a999703fae_29900_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="XB24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="372"
+		data-flex-basis="894px"
+	
+></p>
+<p>RA24/RGBA8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RA24.png"
+	width="1284"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RA24_hu541ba2c4d352bd6751daf2281a5eb6cd_29715_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RA24_hu541ba2c4d352bd6751daf2281a5eb6cd_29715_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RA24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="375"
+		data-flex-basis="901px"
+	
+></p>
+<p>RX24/RGBX8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RX24.png"
+	width="1282"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RX24_hu69a51d2d3df85035618995955341176e_30375_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/RX24_hu69a51d2d3df85035618995955341176e_30375_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="RX24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+<p>BA24/BGRA8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BA24.png"
+	width="1284"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BA24_hud4edd1639752fca5a1227c4edfd0dc37_29738_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BA24_hud4edd1639752fca5a1227c4edfd0dc37_29738_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="BA24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="375"
+		data-flex-basis="901px"
+	
+></p>
+<p>BX24/BXGR8888：</p>
+<p><img src="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BX24.png"
+	width="1282"
+	height="342"
+	srcset="/p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BX24_hu53f4c8b6be29b6e62a1d51bbb559c8f4_30328_480x0_resize_box_3.png 480w, /p/%E5%9F%BA%E6%9C%AC%E9%A2%9C%E8%89%B2%E6%A0%BC%E5%BC%8F%E4%BB%8B%E7%BB%8D/resource/BX24_hu53f4c8b6be29b6e62a1d51bbb559c8f4_30328_1024x0_resize_box_3.png 1024w"
+	loading="lazy"
+	
+		alt="BX24"
+	
+	
+		class="gallery-image" 
+		data-flex-grow="374"
+		data-flex-basis="899px"
+	
+></p>
+
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2020 - 
+        
+        2023 Jair&#39;s Site
+    </section>
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        主题 <b><a href="https://github.com/CaiJimmy/hugo-theme-stack" target="_blank" rel="noopener" data-version="3.16.0">Stack</a></b> 由 <a href="https://jimmycai.com" target="_blank" rel="noopener">Jimmy</a> 设计
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
